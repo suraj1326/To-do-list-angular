@@ -1,0 +1,29 @@
+name: sk
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build-angular-app:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Debug
+        run: ls -R   # 👈 this will show actual structure
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: |
+          cd C:\Users\hp\Downloads\angular-todo-list-main\angular-todo-list-main   # ⚠️ replace with EXACT folder name
+          npm install
+
+      - name: Build
+        run: |
+          cd angular-todo-list-main
+          npm run build
