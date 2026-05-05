@@ -2,11 +2,15 @@ name: sk
 
 on:
   push:
-    branches: [ "main" ]   # make sure this matches your actual branch name
+    branches: [ "main" ]
 
 jobs:
   build-angular-app:
     runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: angular-todo-list-main   # 👈 IMPORTANT
 
     steps:
       - name: Checkout code
