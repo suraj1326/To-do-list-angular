@@ -1,0 +1,24 @@
+name: sk
+
+on:
+  push:
+    branches: [ "main" ]   # make sure this matches your actual branch name
+
+jobs:
+  build-angular-app:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build Angular App
+        run: npm run build
