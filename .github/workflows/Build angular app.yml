@@ -8,21 +8,12 @@ jobs:
   build-angular-app:
     runs-on: ubuntu-latest
 
-    defaults:
-      run:
-        working-directory: angular-todo-list-main   # 👈 IMPORTANT
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 22
 
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build Angular App
-        run: npm run build
+      - run: npm install
+      - run: npm run build
